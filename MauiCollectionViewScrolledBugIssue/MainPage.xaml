@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MauiCollectionViewScrolledBugIssue.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Grid>
+        <CollectionView x:Name="collectionView" ItemsSource="{Binding PageImages}">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout
+                    HorizontalItemSpacing="2"
+                    Orientation="Vertical"
+                    Span="2" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="5">
+                        <Image
+                            Aspect="AspectFill"
+                            HeightRequest="{Binding Height}"
+                            Source="{Binding Image}"
+                            WidthRequest="{Binding Width}" />
+                        <Label
+                            HorizontalOptions="Center"
+                            Text="{Binding PageIndex}"
+                            TextColor="Red"
+                            VerticalOptions="Center" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+
+</ContentPage>
